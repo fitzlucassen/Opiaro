@@ -3,6 +3,8 @@
 <script>
 	var url = '<?php echo __image_directory__ ; ?>';
 </script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/base64Manager.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/interfaceManagerView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/baseInterface.js"></script>
 <?php
     // inclure ci-dessus les balises à inclure dans la balise <head> du layout

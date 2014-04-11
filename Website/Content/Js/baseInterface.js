@@ -33,7 +33,7 @@ $(document).ready(function(){
 		else {
 			$this = $(this);
 
-			$(this).parent().animate({height: '100px'}, 200, function(){
+			$(this).parent().animate({height: '200px'}, 200, function(){
 				$this.children('img').attr('src', url + '/close.png');
 				$this.addClass('close');
 				$this.removeClass('open');
@@ -44,8 +44,22 @@ $(document).ready(function(){
 	var Interface = new InterfaceManagerView();
 
 	for(var i in Interface.elements){
-		$('#elements').append(
-			'<div class="element">' + Interface.elements[i].title + '</div>'
-		);
+		if(Interface.elements[i].element != '' && Interface.elements[i].element != null)
+			$('#elements').append(
+				'<div class="element" data-val="' + Base64.encode(Interface.elements[i].element) + '">' + Interface.elements[i].title + '</div>'
+			);
 	}
+
+	$('.element').draggable({
+		start: function(event, ui){
+			var html = event.toElement;
+			$('#elements').append(html.outerHTML);
+		}
+	});
+	$('#preview').droppable({
+		drop: function(event, ui) {
+			var el = event.toElement.attributes;
+			$('#preview').append(Base64.decode(el[1].value));
+  		}
+  	});
 });
