@@ -1,5 +1,7 @@
+<title>Opiaro - Construisez votre site web</title>
+
 <link type="text/css" rel="stylesheet" href="<?php echo __css_directory__;?>/home.css" />
-<title>FLFramework - Le framework PHP français</title>
+
 <script>
 	var url = '<?php echo __image_directory__ ; ?>';
 </script>
@@ -16,11 +18,13 @@
 <div id="preview">
 </div>
 
+
 <div id="right-toolbar">
 	<div class="close rightClose">
 		<img src="<?php echo __image_directory__ . '/closeRight.png'; ?>" alt="hide">
 	</div>
 </div>
+
 
 <div id="bottom-toolbar">
 	<div class="close">

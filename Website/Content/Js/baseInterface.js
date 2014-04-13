@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	// animation toggle toolbar
 	$('#global').on('click', '.close', function(){
 		if($(this).hasClass('rightClose')){
 			$this = $(this);
@@ -40,13 +41,18 @@ $(document).ready(function(){
 			});
 		}
 	});
+	// end animation toggle
 
+	// launch the app
 	var Interface = new InterfaceManagerView();
 
 	for(var i in Interface.elements){
 		if(Interface.elements[i].element != '' && Interface.elements[i].element != null)
 			$('#elements').append(
-				'<div class="element" data-val="' + Base64.encode(Interface.elements[i].element) + '">' + Interface.elements[i].title + '</div>'
+				'<div class="element" data-val="' + Base64.encode(Interface.elements[i].element) + '">' + 
+				'<div class="elementHidden">' + 
+					Interface.elements[i].title + 
+				'</div></div>'
 			);
 	}
 
@@ -54,8 +60,10 @@ $(document).ready(function(){
 		start: function(event, ui){
 			var html = event.toElement;
 			$('#elements').append(html.outerHTML);
+
 		}
 	});
+
 	$('#preview').droppable({
 		drop: function(event, ui) {
 			var el = event.toElement.attributes;
