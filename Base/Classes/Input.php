@@ -14,7 +14,6 @@ class Input extends Element {
 			->add('Type', Inspector::$Text, 'element.find(\'input\').attr(\'type\', field.val());', 'keyup')
 			->add('Style', Inspector::$Textarea, 'element.find(\'input\').attr(\'style\', field.val());')
 			->add('AddLabel', Inspector::$Text, 'element.find(\'select\').html(field.val());', 'keyup');
-
 	}
 
 }
