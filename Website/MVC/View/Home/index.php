@@ -1,6 +1,7 @@
 <title>Opiaro - Construisez votre site web</title>
 
 <link type="text/css" rel="stylesheet" href="<?php echo __css_directory__;?>/home.css" />
+<link type="text/css" rel="stylesheet" href="<?php echo __css_directory__;?>/interface.css" />
 
 <script>
 	var url = '<?php echo __image_directory__ ; ?>';

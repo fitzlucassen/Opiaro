@@ -1,0 +1,8 @@
+#preview div:hover{
+	border: 1px dashed gray;
+
+	cursor: pointer;
+}
+#preview div.draghover{
+	border: 1px dashed gray;
+}

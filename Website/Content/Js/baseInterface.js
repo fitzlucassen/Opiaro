@@ -51,31 +51,14 @@ $(document).ready(function(){
 
 	$('.elementHidden').draggable({
 		start: function(event, ui){
-			draggableFunction(event, ui);
+			InterfaceController.draggableFunction(event, ui);
 		}
 	});
 
 	$('#preview').droppable({
 		drop: function(event, ui) {
-			droppableFunction(event, ui);
-  		}
+			InterfaceController.droppableFunction(event, ui);
+  		},
+  		greedy: true
   	});
 });
-
-var draggableFunction = function(event, ui){
-	var html = event.toElement;
-	ui.helper.parent().prepend(html.outerHTML);
-	ui.helper.attr('data-val', ui.helper.parent().attr('data-val'));
-
-	ui.helper.parent().children('.elementHidden').draggable({
-		start: function(event, ui){
-			draggableFunction(event, ui);
-		}
-	});
-}
-
-var droppableFunction = function(event, ui){
-	var el = event.toElement.attributes;
-	$('#preview').append(Base64.decode(el[1].value));
-	ui.helper.remove();
-}
