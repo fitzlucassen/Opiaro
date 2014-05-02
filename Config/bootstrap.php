@@ -14,7 +14,7 @@
     Core\Sql::SetDb("flframework");
     Core\Sql::SetHost("localhost");
     Core\Sql::SetUser("root");
-    Core\Sql::SetPwd("");
+    Core\Sql::SetPwd("root");
     // End SQL config
     
     /* FOR DEVELOPER ONLY */

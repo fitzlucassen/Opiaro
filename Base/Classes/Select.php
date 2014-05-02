@@ -6,10 +6,17 @@ class Select extends Element {
 
 	public function init() {
 
-		$this->create('<select name="youhou"><option value="test">Test</option></select>');
+		$option = new Option();
+
+		$this->create('<select name="youhou">'.$option->render().'</select>');
 
 		self::$inspector = new Inspector(__CLASS__);
-		self::$inspector->add('addOption', Inspector::$Submit, 'element.find(\'select\').append(\'<option value="test2">Test2</option>\');', 'click');
+		self::$inspector
+			->add('addOption', Inspector::$Submit, 'inspector.find(\'.Options\').append(inspector.find(\'.Options\').find(\'.source-inspector\').html());', 'click')
+			->addSub('Options');
+
+		self::$inspector->getSub('Options')
+			->setElementName('Option');
 		
 
 	}
