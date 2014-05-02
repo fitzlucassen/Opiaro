@@ -36,8 +36,27 @@
 	cursor: pointer;
 }
 .element{
+	position: relative;
 	background: white;
 	display: inline-block;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #c2c2c2;
+	margin: 5px 5px;
+	padding: 5px;
+
+	vertical-align: top;
+	text-align: center;
+
+	cursor: move;
+}
+.elementHidden{
+	position: absolute;
+	top: 0;
+	left:0;
+
+	background: white;
+	display: block;
 	width: 70px;
 	height: 70px;
 	border: 1px solid #c2c2c2;

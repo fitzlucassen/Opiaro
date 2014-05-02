@@ -45,29 +45,37 @@ $(document).ready(function(){
 
 	// launch the app
 	var Interface = new InterfaceManagerView();
+	var InterfaceController = new InterfaceManagerController(Interface);
 
-	for(var i in Interface.elements){
-		if(Interface.elements[i].element != '' && Interface.elements[i].element != null)
-			$('#elements').append(
-				'<div class="element" data-val="' + Base64.encode(Interface.elements[i].element) + '">' + 
-				'<div class="elementHidden">' + 
-					Interface.elements[i].title + 
-				'</div></div>'
-			);
-	}
+	InterfaceController.Initialize();
 
-	$('.element').draggable({
+	$('.elementHidden').draggable({
 		start: function(event, ui){
-			var html = event.toElement;
-			$('#elements').append(html.outerHTML);
-
+			draggableFunction(event, ui);
 		}
 	});
 
 	$('#preview').droppable({
 		drop: function(event, ui) {
-			var el = event.toElement.attributes;
-			$('#preview').append(Base64.decode(el[1].value));
+			droppableFunction(event, ui);
   		}
   	});
 });
+
+var draggableFunction = function(event, ui){
+	var html = event.toElement;
+	ui.helper.parent().prepend(html.outerHTML);
+	ui.helper.attr('data-val', ui.helper.parent().attr('data-val'));
+
+	ui.helper.parent().children('.elementHidden').draggable({
+		start: function(event, ui){
+			draggableFunction(event, ui);
+		}
+	});
+}
+
+var droppableFunction = function(event, ui){
+	var el = event.toElement.attributes;
+	$('#preview').append(Base64.decode(el[1].value));
+	ui.helper.remove();
+}

@@ -6,3 +6,12 @@ function InterfaceManagerView(){
 		{title: 'champs texte', element: '<input type="text" value="value" />'}
 	]
 }
+
+InterfaceManagerView.prototype.appendElements = function(dataVal, title){
+	$('#elements').append(
+		'<div class="element" data-val="' + dataVal + '">' + 
+			'<div class="elementHidden">' + title + '</div>'
+			+ title + 
+		'</div>'
+	);
+}
