@@ -45,7 +45,9 @@ $(document).ready(function(){
 
 	// launch the app
 	var Interface = new InterfaceManagerView();
+	var Inspector = new InspectorView();
 	var InterfaceController = new InterfaceManagerController(Interface);
+	var InspectorController = new InspectorManagerController(Inspector);
 
 	InterfaceController.Initialize();
 
@@ -60,5 +62,16 @@ $(document).ready(function(){
 			InterfaceController.droppableFunction(event, ui);
   		},
   		greedy: true
+  	});
+
+	// Process the inspect element
+  	$('#preview').on('click', '*', function(){
+  		$('#properties .propertiesContainer').html('');
+  		InspectorController.showInInspector($(this));
+  	});
+
+  	// Real time binding modification
+  	$('#properties').on('blur', 'input.propertyInput', function(){
+  		
   	});
 });

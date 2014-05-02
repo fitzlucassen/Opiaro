@@ -68,3 +68,24 @@
 
 	cursor: move;
 }
+.inlineBlock{
+	display: inline-block;
+}
+.vMiddle{
+	vertical-align: middle;
+}
+.propertiesContainer span.label{
+	display: inline-block;
+	width: 75px;
+	vertical-align: middle;
+	padding: 5px;
+	font-size: 11px;
+}
+.propertiesContainer input.propertyInput{
+	display: inline-block;
+	width: 80px;
+	vertical-align: middle;
+	padding: 2px;
+
+	font-size: 11px;
+}

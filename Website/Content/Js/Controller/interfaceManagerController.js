@@ -38,7 +38,8 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 	// On décode le data-val de l'élément draggé qui correspond au html de l'élément encodé en base64
 	var htmlInString = Base64.decode(dataValAttr);
 	// On crée un ID unique pour cet élément
-	htmlInString = this.insertIdAttribut(htmlInString);
+	htmlInString = this.view.insertIdAttribut(htmlInString, this.Guid);
+	this.Guid++;
 	// On ajoute l'élément au DOM
   	droppableDiv.append(htmlInString);
   	// On supprime la div draggé
@@ -53,13 +54,4 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   		hoverClass: "draghover",
   		greedy: true,
   	});
-}
-
-InterfaceManagerController.prototype.insertIdAttribut = function(element){
-	elementTmp = element.substr(0, element.indexOf(' '));
-	elementTmp += ' ' + 'id="element' + this.Guid + '"';
-	elementTmp += ' ' + element.substr(element.indexOf(' '), element.length);
-	this.Guid++;
-
-	return elementTmp;
 }

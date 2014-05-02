@@ -30,10 +30,9 @@
 <link type="text/css" rel="stylesheet" href="/<?php echo __css_directory__; ?>/Base/base.css" />
 
 <!-- Required script -->
-<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/jquery-1.10.min.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/jquery-ui-1.10.custom.min.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/helper.js"></script>
-<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Base/base.js"></script>
 
 <!--[if lt IE 9]>
 	<script src="<?php echo __js_directory__  ; ?>/Base/html5shiv.js"></script>
