@@ -1,3 +1,4 @@
+/* APP BLOCKS */
 #preview{
 	background: #fff;
 	position: relative;
@@ -26,15 +27,23 @@
 	border-left: 1px solid #d2d2d2;
 }
 
+
+
+/* ARROWS OPEN/CLOSE */
 .close, .open{
 	display: inline-block;
 	height: 34px;
 	width: 34px;
 }
+
 .close:hover, .open:hover{
 	border: 1px solid #c2c2c2;
 	cursor: pointer;
 }
+
+
+
+/* ELEMENTS */
 .element{
 	position: relative;
 	background: white;
@@ -50,6 +59,7 @@
 
 	cursor: move;
 }
+
 .elementHidden{
 	position: absolute;
 	top: 0;
@@ -68,12 +78,10 @@
 
 	cursor: move;
 }
-.inlineBlock{
-	display: inline-block;
-}
-.vMiddle{
-	vertical-align: middle;
-}
+
+
+
+/* INSPECTOR */
 .propertiesContainer span.label{
 	display: inline-block;
 	width: 75px;

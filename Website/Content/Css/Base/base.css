@@ -5,9 +5,6 @@
     src: url("../Font/Segoe UI.ttf");
 }
 
-/* UTILITIES CLASSES */
-.left{float: left;}.right{float:right;}.alignCenter{text-align:center;}.cl{clear:both;}.vAlign{vertical-align:middle;}
-
 /* LAYOUT */
 html, body{
     width: 100%;
@@ -19,14 +16,22 @@ html, body{
     overflow: hidden;
 }
 
+/* STYLE PATTERN */
 .title{
     color: #111;
     font-size: 22px;
     font-family: 'Segoe UI';
 }
-
 .contenu{
     color: #444;
     font-size: 16px;
     font-family: 'Arial';
 }
+
+/* UTILITIES CLASSES */
+.inlineBlock{display: inline-block;}
+.vMiddle{vertical-align: middle;}
+.left{float: left;}
+.right{float:right;}
+.alignCenter{text-align:center;}
+.cl{clear:both;}

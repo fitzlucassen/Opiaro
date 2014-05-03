@@ -47,6 +47,7 @@ InspectorView.prototype.appendProperty = function(property, element){
 	if(element.css(property.name))
 		value = element.css(property.name);
 
+	// Et on ajoute la propriété à l'inspecteur
 	$('#properties .propertiesContainer').append(
 		'<div class="property">' + 
 			'<span class="label">' + property.label + '</span>' +
@@ -55,20 +56,25 @@ InspectorView.prototype.appendProperty = function(property, element){
 	);
 };
 
-
+// Change le style d'un élément
 InspectorView.prototype.changeStyle = function(element){
 	$('#' + element.attr('data-val')).css(
 		element.attr('name'), element.val()
 	);
 };
 
+// Change les identifiants d'un élément
 InspectorView.prototype.changeIdentifiers = function(element){
+	// Si on change la classe, on utilise la fonction addClass
 	if(element.attr('name') == 'class'){
 		$('#' + element.attr('data-val')).removeClass().addClass(element.val());
 	}
+	// Sinon on utilise la fonction attr
 	else
 		$('#' + element.attr('data-val')).attr(element.attr('name'), element.val());
 
+	// Si on a changé l'id il faut qu'on change le data-val de tous les inputs de l'inspecteur
+	// Pour garder le lien entre l'élément de l'inspecteur
 	if(element.attr('name') == 'id')
 		$('.propertyInput').attr('data-val', element.val());
 };

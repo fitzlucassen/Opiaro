@@ -4,6 +4,7 @@ function InterfaceManagerController(view){
 	this.ChildrenGiud = 0;
 }
 
+// Initialise l'application en ajoutant la liste des éléments draggable au DOM
 InterfaceManagerController.prototype.Initialize = function(){
 	for(var i in this.view.elements){
 		if(this.view.elements[i].element != '' && this.view.elements[i].element != null)
@@ -11,6 +12,7 @@ InterfaceManagerController.prototype.Initialize = function(){
 	}
 };
 
+// S'exécute au début de chaque drag
 InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 	var $this = this;
 	var html = event.toElement;
@@ -21,7 +23,7 @@ InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 	// On récupère le html sérialisé
 	draggableDiv.attr('data-val', draggableDiv.parent().attr('data-val'));
 
-	// Et on bind sur le clone de lla div draggable, le comportement draggable 
+	// Et on bind sur le clone de la div draggable, le comportement draggable 
 	draggableDiv.parent().children('.elementHidden').draggable({
 		start: function(event, ui){
 			$this.draggableFunction(event, ui);
@@ -29,6 +31,7 @@ InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 	});
 };
 
+// S'exécute à chaque drop
 InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 	var $this = this;
 	var draggableDiv = ui.helper;

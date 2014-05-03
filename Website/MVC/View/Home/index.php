@@ -12,7 +12,7 @@
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/inspectorView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/interfaceManagerController.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/inspectorManagerController.js"></script>
-<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/baseInterface.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/app.js"></script>
 <?php
     // inclure ci-dessus les balises à inclure dans la balise <head> du layout
     $head = $this->RegisterViewHead();
