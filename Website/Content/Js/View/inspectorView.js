@@ -24,7 +24,7 @@ InspectorView.prototype.appendTitle = function(title){
 	$('#properties .propertiesContainer').append(
 		'<h3>' + title + '</h3>'
 	);
-}
+};
 
 InspectorView.prototype.appendProperty = function(property, element){
 	var value = '';
@@ -48,7 +48,25 @@ InspectorView.prototype.appendProperty = function(property, element){
 	$('#properties .propertiesContainer').append(
 		'<div class="property">' + 
 			'<span class="label">' + property.label + '</span>' +
-			'<input type="text" class="propertyInput" value="' + value + '" name="' + property.name + '" />' +
+			'<input type="text" data-val="' + element.attr('id') + '" class="propertyInput" value="' + value + '" name="' + property.name + '" />' +
 		'</div>'
 	);
-}
+};
+
+
+InspectorView.prototype.changeStyle = function(element){
+	$('#' + element.attr('data-val')).css(
+		element.attr('name'), element.val()
+	);
+};
+
+InspectorView.prototype.changeIdentifiers = function(element){
+	if(element.attr('name') == 'class'){
+		$('#' + element.attr('data-val')).removeClass().addClass(element.val());
+	}
+	else
+		$('#' + element.attr('data-val')).attr(element.attr('name'), element.val());
+
+	if(element.attr('name') == 'id')
+		$('.propertyInput').attr('data-val', element.val());
+};

@@ -30,3 +30,34 @@ InspectorManagerController.prototype.showInInspector = function(element){
 		}
 	}
 };
+
+InspectorManagerController.prototype.modifyElement = function(element){
+	var category = this.getCategory(element.attr('name'));
+
+	if(category.Title == 'Selecteurs'){
+		this.view.changeIdentifiers(element);
+	}
+	else {
+		this.view.changeStyle(element);
+	}
+};
+
+InspectorManagerController.prototype.getCategory = function(property){
+	var category = '';
+
+	for(var c in this.view.GeneralProperties){
+		if(typeof(this.view.GeneralProperties[c]) == 'function')
+			continue;
+
+		for(var p in this.view.GeneralProperties[c].properties){
+			if(typeof(this.view.GeneralProperties[c].properties[p]) == 'function')
+				continue;
+			if(property == this.view.GeneralProperties[c].properties[p].name){
+				category = this.view.GeneralProperties[c];
+				break;
+			}
+		}
+	}
+
+	return category;
+};

@@ -71,7 +71,7 @@ $(document).ready(function(){
   	});
 
   	// Real time binding modification
-  	$('#properties').on('blur', 'input.propertyInput', function(){
-  		
+  	$('#properties').on('keyup', 'input.propertyInput', function(){
+  		InspectorController.modifyElement($(this));
   	});
 });
