@@ -25,11 +25,15 @@
 
 
 <div id="right-toolbar">
-	<div class="close rightClose vMiddle">
-		<img src="<?php echo __image_directory__ . '/closeRight.png'; ?>" alt="hide">
-	</div>
+	<div class="tabs">
+		<div class="close rightClose vMiddle">
+			<img src="<?php echo __image_directory__ . '/closeRight.png'; ?>" alt="hide">
+		</div>
 
-	<h2 class="inlineBlock vMiddle">Propriétés</h2>
+		<div class="tab inlineBlock vMiddle active">
+			<h2 class="inlineBlock vMiddle">Inspecteur</h2>
+		</div>
+	</div>
 
 	<div id="properties">	
 		<div class="propertiesContainer"></div>
