@@ -23,18 +23,6 @@
 <div id="preview">
 </div>
 
-<div id="menus-bar">
-	<div class="menu inlineBlock vMiddle">
-		<h2>Fichier</h2>
-	</div>
-	<div class="menu inlineBlock vMiddle">
-		<h2>Projets</h2>
-	</div>
-	<div class="menu inlineBlock vMiddle">
-		<h2>Afficher</h2>
-	</div>
-</div>
-
 <div id="right-toolbar">
 	<div class="tabs">
 		<div class="close rightClose vMiddle">
