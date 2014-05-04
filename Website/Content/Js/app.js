@@ -4,7 +4,7 @@ $(document).ready(function(){
 		if($(this).hasClass('rightClose')){
 			$this = $(this);
 
-			$(this).parent().animate({width: '34px'}, 200, function(){
+			$(this).parent().parent().animate({width: '27px'}, 200, function(){
 				$this.children('img').attr('src', url + '/openRight.png');
 				$this.addClass('rightOpen').addClass('open');
 				$this.removeClass('rightClose').removeClass('close');
@@ -13,7 +13,7 @@ $(document).ready(function(){
 		else {
 			$this = $(this);
 
-			$(this).parent().animate({height: '34px'}, 200, function(){
+			$(this).parent().parent().animate({height: '27px'}, 200, function(){
 				$this.children('img').attr('src', url + '/open.png');
 				$this.addClass('open');
 				$this.removeClass('close');
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		if($(this).hasClass('rightOpen')){
 			$this = $(this);
 
-			$(this).parent().animate({width: '200px'}, 200, function(){
+			$(this).parent().parent().animate({width: '112px'}, 200, function(){
 				$this.children('img').attr('src', url + '/closeRight.png');
 				$this.addClass('rightClose').addClass('close');
 				$this.removeClass('rightOpen').removeClass('open');
@@ -34,7 +34,7 @@ $(document).ready(function(){
 		else {
 			$this = $(this);
 
-			$(this).parent().animate({height: '200px'}, 200, function(){
+			$(this).parent().parent().animate({height: '112px'}, 200, function(){
 				$this.children('img').attr('src', url + '/close.png');
 				$this.addClass('close');
 				$this.removeClass('open');

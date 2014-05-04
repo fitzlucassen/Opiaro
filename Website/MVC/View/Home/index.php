@@ -38,12 +38,21 @@
 
 
 <div id="bottom-toolbar">
-	<div class="close vMiddle">
-		<img src="<?php echo __image_directory__ . '/close.png'; ?>" alt="hide">
+	<div class="tabs">
+		<div class="close vMiddle">
+			<img src="<?php echo __image_directory__ . '/close.png'; ?>" alt="hide">
+		</div>
+
+		<div class="tab inlineBlock vMiddle active">
+			<h2>Éléments</h2>
+		</div>
+		<div class="tab inlineBlock vMiddle">
+			<h2>Éléments complexes</h2>
+		</div>
+		<div class="tab inlineBlock vMiddle">
+			<h2>SeoBlock</h2>
+		</div>
 	</div>
-
-	<h2 class="inlineBlock vMiddle">Éléments</h2>
-
 	<div id="elements">
 	</div>
 </div>
