@@ -17,13 +17,28 @@ function InterfaceManagerView(){
 }
 
 // Ajoute un élément draggable dans la liste des éléments
-InterfaceManagerView.prototype.appendElements = function(dataVal, title){
-	$('#elements').append(
-		'<div class="element" data-val="' + dataVal + '">' + 
-			'<div class="elementHidden">' + title + '</div>' +
-		'</div>'
-	);
-}
+InterfaceManagerView.prototype.appendElements = function(dataVal, title, callback){
+	var $callback = callback;
+
+	// On load le template qu'on souhaite
+	TemplateParser.loadTemplate('elementsElement', function(){
+		// Et en callback, on crée le tableau des éléments à remplacer
+		var t = [
+			{name: 'elementHtml', value: dataVal},
+			{name: 'elementTitle', value: title},			
+		];
+
+		// On remplace dans le template
+		TemplateParser.replaceTemplate(t);
+
+		// Et on ajoute au DOM
+		$('#elements').append(
+			TemplateParser.getTemplate()
+		);
+
+		$callback();
+	});
+};
 
 // Ajoute un id unique à un élément draggable
 InterfaceManagerView.prototype.insertIdAttribut = function(element, guid){
@@ -32,4 +47,4 @@ InterfaceManagerView.prototype.insertIdAttribut = function(element, guid){
 	elementTmp += ' ' + element.substr(element.indexOf(' '), element.length);
 
 	return elementTmp;
-}
+};

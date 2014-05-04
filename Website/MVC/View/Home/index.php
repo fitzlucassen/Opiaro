@@ -8,6 +8,7 @@
 </script>
 
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/base64Manager.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/templateParser.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/interfaceManagerView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/inspectorView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/interfaceManagerController.js"></script>
@@ -37,8 +38,10 @@
 	<div id="properties">
 		<h2>Propriétés</h2>
 		<div class="propertiesContainer container"></div>
+
 		<h2>Actions</h2>
 		<div class="actionsContainer container"></div>
+
 		<h2>Evenements</h2>
 		<div class="eventsContainer container"></div>
 	</div>
@@ -48,6 +51,7 @@
 <div id="bottom-toolbar">
 	<div class="tabs">
 		<input class="inlineBlock vMiddle" placeholder="Chercher un bloc"/>
+		
 		<div class="close vMiddle">
 			<img src="<?php echo __image_directory__ . '/close.png'; ?>" alt="hide">
 		</div>
@@ -62,6 +66,7 @@
 			<h2>SeoBlock</h2>
 		</div>
 	</div>
+
 	<div id="elements">
 	</div>
 </div>

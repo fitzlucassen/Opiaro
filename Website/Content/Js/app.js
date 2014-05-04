@@ -49,14 +49,17 @@ $(document).ready(function(){
 	var InterfaceController = new InterfaceManagerController(Interface);
 	var InspectorController = new InspectorManagerController(Inspector);
 
-	InterfaceController.Initialize();
-
-	$('.elementHidden').draggable({
-		start: function(event, ui){
-			InterfaceController.draggableFunction(event, ui);
-		}
+	// On donne un callback à la fonction d'initialisation 
+	// Afin de binder le comportement draggable lorsque les éléments sont chargés
+	InterfaceController.Initialize(function(){
+		$('.elementHidden').draggable({
+			start: function(event, ui){
+				InterfaceController.draggableFunction(event, ui);
+			}
+		});
 	});
 
+	// On bind l'évènement droppable au container preview
 	$('#preview').droppable({
 		drop: function(event, ui) {
 			InterfaceController.droppableFunction(event, ui);

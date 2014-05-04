@@ -5,10 +5,10 @@ function InterfaceManagerController(view){
 }
 
 // Initialise l'application en ajoutant la liste des éléments draggable au DOM
-InterfaceManagerController.prototype.Initialize = function(){
+InterfaceManagerController.prototype.Initialize = function(callback){
 	for(var i in this.view.elements){
 		if(this.view.elements[i].element != '' && this.view.elements[i].element != null)
-			this.view.appendElements(Base64.encode(this.view.elements[i].element), this.view.elements[i].title);
+			this.view.appendElements(Base64.encode(this.view.elements[i].element), this.view.elements[i].title, callback);
 	}
 };
 

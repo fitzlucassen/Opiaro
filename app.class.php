@@ -13,7 +13,7 @@
 		// Boolean vars
 		private $_isInErrorPage = false;
 		private $_isOnMobile = false;
-		private $_isValidUrl = false;
+		private $_isValidUrl = true;
 		private static $_isDebugMode = false;
 		private static $_databaseNeeded = true;
 		private static $_urlRewritingNeeded = true;
@@ -104,8 +104,9 @@
 		    if(self::$_databaseNeeded && self::$_urlRewritingNeeded && !$this->_isInErrorPage){
 				$this->_urlRewritingObject->createRouteUrl();
 		    }
-		    $this->Manage404();
-		    $this->ManageAction();
+
+		    $this->Manage404();		    
+		    $this->ManageAction();		    
 		}
 		
 		/**
@@ -159,6 +160,7 @@
 		public function ManageAction(){
 		    // Si on est sur une page erreur ou si on a le module rewriting on récpère le nom de l'action en brute
 		    // Sinon on le récupère via l'objet routeurl
+
 		    if(!self::$_databaseNeeded || !self::$_urlRewritingNeeded || $this->_isInErrorPage || ($this->_isValidUrl && $this->_urlRewritingObject->isWrongRoute()))
 				$actionName = $this->_url['action'];
 		    else
