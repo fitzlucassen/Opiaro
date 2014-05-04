@@ -9,7 +9,8 @@ var TemplateParser = {
 		$.ajax({
 		  type: "GET",
 		  url: this._url + name,
-		  dataType: 'html'
+		  dataType: 'html',
+		  async: false
 		}).done(function( data ) {
 	    	$this._template = data;
 
