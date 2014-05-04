@@ -4,7 +4,7 @@ $(document).ready(function(){
 		if($(this).hasClass('rightClose')){
 			$this = $(this);
 
-			$(this).parent().parent().animate({width: '27px'}, 200, function(){
+			$(this).parent().parent().animate({right: '-170px'}, 200, function(){
 				$this.children('img').attr('src', url + '/openRight.png');
 				$this.addClass('rightOpen').addClass('open');
 				$this.removeClass('rightClose').removeClass('close');
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		if($(this).hasClass('rightOpen')){
 			$this = $(this);
 
-			$(this).parent().parent().animate({width: '112px'}, 200, function(){
+			$(this).parent().parent().animate({right: '-0px'}, 200, function(){
 				$this.children('img').attr('src', url + '/closeRight.png');
 				$this.addClass('rightClose').addClass('close');
 				$this.removeClass('rightOpen').removeClass('open');
