@@ -47,6 +47,7 @@
 
 <div id="bottom-toolbar">
 	<div class="tabs">
+		<input class="inlineBlock vMiddle" placeholder="Chercher un bloc"/>
 		<div class="close vMiddle">
 			<img src="<?php echo __image_directory__ . '/close.png'; ?>" alt="hide">
 		</div>

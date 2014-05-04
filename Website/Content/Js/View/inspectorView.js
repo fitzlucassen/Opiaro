@@ -7,16 +7,16 @@ function InspectorView(){
 			{label: 'class', name: 'class'}
 		]}, 
 		{Title: 'Style', properties: [
-			{label: 'couleur', name: 'color'},
-			{label: 'couleur de fond', name: 'background-color'},
-			{label: 'police', name: 'font-family'},
-			{label: 'taille texte', name: 'font-size'},
-			{label: 'texte', name: 'text'}
+			{label: 'Couleur', name: 'color'},
+			{label: 'Couleur de fond', name: 'background-color'},
+			{label: 'Police', name: 'font-family'},
+			{label: 'Taille texte', name: 'font-size'},
+			{label: 'Texte', name: 'text'}
 		]},
 		{Title: 'Espacement', properties: [
-			{label: 'marge extérieur', name: 'margin'},
-			{label: 'marge intérieur', name: 'padding'},
-			{label: 'bodure', name: 'border'},
+			{label: 'Marge extérieur', name: 'margin'},
+			{label: 'Marge intérieur', name: 'padding'},
+			{label: 'Bordure', name: 'border'},
 		]}
 	];
 	this.FieldProperties = ['name', 'value', 'placeholder'];

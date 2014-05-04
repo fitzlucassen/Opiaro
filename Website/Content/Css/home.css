@@ -39,6 +39,19 @@
 	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
 }
 
+#bottom-toolbar .tabs input{
+	float: right;
+	padding: 5px;
+	padding-right: 20px;
+	padding-left: 8px;
+	font-size: 14px;
+	background: white;
+	border: none;
+	margin-right: 5px;
+	background: url(../Media/Image/loupe.png) center right no-repeat;
+	background-size: 20px 20px;
+}
+
 .tabs {
 	color: grey;
 	border-bottom: 1px solid #E9E9E9;
@@ -112,9 +125,10 @@
 	display: inline-block;
 	width: 70px;
 	height: 70px;
-	background: #c3c3c3;
-	border: 1px solid #c3c3c3;
+	background: #c0e3f0;
+	border: 1px solid #00b1d5;
 	margin: 5px;
+	color: #00b1d5;
 
 	vertical-align: top;
 	text-align: center;
@@ -128,11 +142,12 @@
 	left: -1px;
 
 	border-radius: 5px;
-	background: white;
+	background: #c0e3f0;
 	display: block;
 	width: 100%;
 	height: 100%;
-	border: 1px solid #c2c2c2;
+	border: 1px solid #00b1d5;
+	color: #00b1d5;
 
 	vertical-align: top;
 	text-align: center;
@@ -142,7 +157,13 @@
 }
 
 .element:hover{
-	opacity: 0.6;
+	background: #00b1d5;
+	color: white;
+}
+
+.elementHidden:hover{
+	background: #00b1d5;
+	color: white;
 }
 
 
@@ -156,20 +177,33 @@
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	background: #f8fafa;
+	font-size: 0px;
+}
+
+#properties .container h3{
+	font-size: 12px;
 }
 
 .propertiesContainer span.label{
 	display: inline-block;
-	width: 75px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 40%;
 	vertical-align: middle;
 	padding: 5px;
 	font-size: 11px;
 }
 .propertiesContainer input.propertyInput{
 	display: inline-block;
-	width: 80px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 60%;
 	vertical-align: middle;
 	padding: 2px;
+	border-radius: 2px;
+	border: 1px solid #ccc;
 
 	font-size: 11px;
 }
