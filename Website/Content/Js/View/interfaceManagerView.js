@@ -20,8 +20,7 @@ function InterfaceManagerView(){
 InterfaceManagerView.prototype.appendElements = function(dataVal, title){
 	$('#elements').append(
 		'<div class="element" data-val="' + dataVal + '">' + 
-			'<div class="elementHidden">' + title + '</div>'
-			+ title + 
+			'<div class="elementHidden">' + title + '</div>' +
 		'</div>'
 	);
 }
