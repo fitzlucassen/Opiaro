@@ -126,6 +126,17 @@
 
 
 /* INSPECTOR */
+#properties h2{
+	margin: 10px;
+	color: rgba(230, 126, 34,1.0);
+}
+#properties .container{
+	padding: 2px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f8fafa;
+}
+
 .propertiesContainer span.label{
 	display: inline-block;
 	width: 75px;

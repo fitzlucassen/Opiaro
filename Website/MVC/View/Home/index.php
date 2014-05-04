@@ -35,8 +35,13 @@
 		</div>
 	</div>
 
-	<div id="properties">	
-		<div class="propertiesContainer"></div>
+	<div id="properties">
+		<h2>Propriétés</h2>
+		<div class="propertiesContainer container"></div>
+		<h2>Actions</h2>
+		<div class="actionsContainer container"></div>
+		<h2>Evenements</h2>
+		<div class="eventsContainer container"></div>
 	</div>
 </div>
 
