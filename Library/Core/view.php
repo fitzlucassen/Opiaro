@@ -50,7 +50,7 @@
 	    $content = ob_get_clean();
 	    
 	    // On récupère le contenue en cache (si layout rss --> on n'a pas de head)
-	    if($this->_layout !== "rss")
+	    if($this->_layout !== "rss" && $this->_layout != null)
 	    	$this->Head = $head;
 	    else
 	    	$this->Head = "";
@@ -58,10 +58,15 @@
 	    $this->Body = $content;	    
 
 	    // Et on inclue le layout/vue
-	    if(file_exists(__layout_directory__ . "/" . $this->_layout .".php"))
-			include(__layout_directory__ . "/" . $this->_layout .".php");
-	    else
-			throw new adapters\ViewException(adapters\ViewException::getBAD_LAYOUT(), array('layout' => $this->_layout));
+	    if(isset($this->_layout) && !empty($this->_layout)){
+		    if(file_exists(__layout_directory__ . "/" . $this->_layout .".php"))
+				include(__layout_directory__ . "/" . $this->_layout .".php");
+		    else
+				throw new adapters\ViewException(adapters\ViewException::getBAD_LAYOUT(), array('layout' => $this->_layout));
+		}
+		else {
+			echo $this->Body;
+		}
 	}
 	
 	/**

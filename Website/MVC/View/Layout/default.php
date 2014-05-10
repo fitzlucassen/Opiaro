@@ -21,14 +21,14 @@
     <body>
 	<div id="global">
 	    <?php
-		include(__partial_directory__ . "/header.php");
+			include(__partial_directory__ . "/header.php");
 	    ?>
 	    <?php
 		// Inclusion de la vue cible
-		$this->Render($this->Body);
+			$this->Render($this->Body);
 	    ?>
 	    <?php
-		include(__partial_directory__ . "/footer.php");
+			include(__partial_directory__ . "/footer.php");
 	    ?>
 	</div>
     </body>
