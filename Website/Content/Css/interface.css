@@ -6,3 +6,4 @@
 #preview *.draghover{
 	border: 1px dashed gray;
 }
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; }

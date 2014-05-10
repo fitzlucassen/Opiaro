@@ -25,6 +25,13 @@ InterfaceManagerView.prototype.appendElements = function(dataVal, title){
 	);
 }
 
+// Change de place un élément déjà présent dans la preview
+InterfaceManagerView.prototype.moveDraggableDiv = function(container, content){
+	container.append($('<div id="tempDiv">').append(content).html());
+	container.children(content).css({position: 'static'});
+	$('<div id="tempDiv">').remove();
+}
+
 // Ajoute un id unique à un élément draggable
 InterfaceManagerView.prototype.insertIdAttribut = function(element, guid){
 	elementTmp = element.substr(0, element.indexOf(' '));

@@ -27,7 +27,8 @@ InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 	draggableDiv.parent().children('.elementHidden').draggable({
 		start: function(event, ui){
 			$this.draggableFunction(event, ui);
-		}
+		},
+		connectWith: '#preview',
 	});
 };
 
@@ -43,8 +44,16 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 	// On crée un ID unique pour cet élément
 	htmlInString = this.view.insertIdAttribut(htmlInString, this.Guid);
 	this.Guid++;
+
 	// On ajoute l'élément au DOM
-  	droppableDiv.append(htmlInString);
+	// Si l'élément était déjà dans le DOM, on l'ajoute lui et son contenu dans le nouveau conteneur
+	// Sinon, on append le dataVal décodé
+	if(draggableDiv.hasClass('ui-droppable')){
+		this.view.moveDraggableDiv(droppableDiv, draggableDiv);
+	} else{
+	  	droppableDiv.append(htmlInString);
+	  	$('#element' + (this.Guid - 1)).attr('data-val', dataValAttr);
+	}
   	// On supprime la div draggé
 	draggableDiv.remove();
 
@@ -56,5 +65,9 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   		tolerance: "pointer",
   		hoverClass: "draghover",
   		greedy: true,
-  	});
+  	}).sortable({
+		placeholder: "ui-state-highlight",
+		connectWith: '#preview',
+		cursor: 'pointer'
+	});
 }

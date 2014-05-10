@@ -51,21 +51,35 @@ $(document).ready(function(){
 
 	InterfaceController.Initialize();
 
+	// Drag des éléments de base dans la preview
 	$('.elementHidden').draggable({
 		start: function(event, ui){
 			InterfaceController.draggableFunction(event, ui);
-		}
+		},
+		connectWith: '#preview',
 	});
 
+	// Re-Drag des éléments déjà en place dans la preview
+	$('#preview').sortable({
+		placeholder: "ui-state-highlight",
+		connectWith: '#preview',
+		cursor: 'pointer'
+	});
+
+	// Les éléments présent dans la preview doivent pouvoir être droppable
 	$('#preview').droppable({
 		drop: function(event, ui) {
 			InterfaceController.droppableFunction(event, ui);
   		},
-  		greedy: true
+  		greedy: true,
+  		accept: '.elementHidden',
   	});
 
 	// Process the inspect element
-  	$('#preview').on('click', '*', function(){
+  	$('#preview').on('click', '*', function(e){
+  		e.preventDefault();
+  		e.stopPropagation();
+
   		$('#properties .propertiesContainer').html('');
   		InspectorController.showInInspector($(this));
   	});
