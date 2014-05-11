@@ -63,7 +63,8 @@ $(document).ready(function(){
 	$('#preview').sortable({
 		placeholder: "ui-state-highlight",
 		connectWith: '#preview',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		cancel: 'option'
 	});
 
 	// On bind l'évènement droppable au container preview
@@ -77,11 +78,32 @@ $(document).ready(function(){
 
 	// Process the inspect element
   	$('#preview').on('click', '*', function(e){
+  		if($(this).hasClass('deleteElement')){
+  			$(this).parent().remove();
+  			return false;
+  		}
+
   		e.preventDefault();
   		e.stopPropagation();
 
   		$('#properties .propertiesContainer').html('');
   		InspectorController.showInInspector($(this));
+  	}).on('mouseover', '*', function(e){
+  		e.preventDefault();
+  		e.stopPropagation();
+
+  		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0)
+  			return false;
+
+  		$(this).prepend('<div class="deleteElement">X</div>');
+  	}).on('mouseleave', '*', function(e){
+  		e.preventDefault();
+  		e.stopPropagation();
+
+  		if($(this).hasClass('deleteElement'))
+  			$(this).remove();
+  		else 
+  			$(this).children('.deleteElement').remove();
   	});
 
   	// Real time binding modification

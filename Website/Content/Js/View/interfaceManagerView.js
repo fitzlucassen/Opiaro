@@ -18,21 +18,12 @@ function InterfaceManagerView(){
 
 // Ajoute un élément draggable dans la liste des éléments
 InterfaceManagerView.prototype.appendElements = function(dataVal, title){
-	TemplateParser.loadTemplate('elementsElement', function(){
-		// Et en callback, on crée le tableau des éléments à remplacer
-		var t = [
-			{name: 'elementHtml', value: dataVal},
-			{name: 'elementTitle', value: title},			
-		];
-
-		// On remplace dans le template
-		TemplateParser.replaceTemplate(t);
-
-		// Et on ajoute au DOM
-		$('#elements').append(
-			TemplateParser.getTemplate()
-		);
-	});
+	// Et on ajoute au DOM
+	$('#elements').append(
+		'<div class="element" data-val="' + dataVal + '">' +
+			'<div class="elementHidden">' + title + '</div>' +
+		'</div>'
+	);
 };
 
 // Change de place un élément déjà présent dans la preview

@@ -29,6 +29,8 @@ InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 			$this.draggableFunction(event, ui);
 		},
 		connectWith: '#preview',
+		cursor: 'pointer',
+		cancel: 'option'
 	});
 };
 
@@ -68,6 +70,7 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   	}).sortable({
 		placeholder: "ui-state-highlight",
 		connectWith: '#preview',
-		cursor: 'pointer'
+		cursor: 'pointer',
+		cancel: 'option'
 	});
 }

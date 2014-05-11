@@ -3,6 +3,23 @@
 
 	cursor: pointer;
 }
+#preview *.deleteElement{
+	display: block;
+	float: left;
+	margin: 0px 10px 0 5px;
+	background: #444;
+	padding: 3px;
+
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-o-border-radius: 2px;
+	-ms-border-radius: 2px;
+
+	font-size: 12px;
+	font-family: verdana;
+	color: #fff;
+}
 #preview *.draghover{
 	border: 1px dashed gray;
 }

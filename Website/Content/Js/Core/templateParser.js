@@ -1,21 +1,8 @@
 var TemplateParser = {
-	_url: '/JSTemplate/',
 	_template: '',
 
-	loadTemplate: function(name, callback){
-		var $this = this;
-		var $callback = callback;
+	loadTemplate: function(name){
 
-		$.ajax({
-		  type: "GET",
-		  url: this._url + name,
-		  dataType: 'html',
-		  async: false
-		}).done(function( data ) {
-	    	$this._template = data;
-
-	    	$callback();
-	  	});
 	},
 
 	replaceTemplate: function(array){
