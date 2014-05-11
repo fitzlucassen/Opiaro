@@ -29,8 +29,7 @@ InterfaceManagerController.prototype.draggableFunction = function(event, ui){
 			$this.draggableFunction(event, ui);
 		},
 		connectWith: '#preview',
-		cursor: 'pointer',
-		cancel: 'option'
+		cursor: 'pointer'
 	});
 };
 
@@ -59,14 +58,14 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   	// On supprime la div draggé
 	draggableDiv.remove();
 
-	// On bind ensuite sur tous les fils de la div droppable la plus proche, le comportement de droppable
+	// On bind ensuite sur tous les fils de la div droppable la plus proche, le comportement de droppable et sortable
 	droppableDiv.children().droppable({
 		drop: function(event, ui) {
 			$this.droppableFunction(event, ui);
   		},
   		tolerance: "pointer",
   		hoverClass: "draghover",
-  		greedy: true,
+  		greedy: true
   	}).sortable({
 		placeholder: "ui-state-highlight",
 		connectWith: '#preview',

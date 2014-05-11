@@ -26,6 +26,12 @@ InterfaceManagerView.prototype.appendElements = function(dataVal, title){
 	);
 };
 
+// Ajoute à un élément droppé, le bouton de suppression
+InterfaceManagerView.prototype.appendDeleteButton = function(context){
+	// Et on ajoute au DOM
+	context.prepend('<div class="deleteElement">X</div>');
+};
+
 // Change de place un élément déjà présent dans la preview
 InterfaceManagerView.prototype.moveDraggableDiv = function(container, content){
 	container.append($('<div id="tempDiv">').append(content).html());

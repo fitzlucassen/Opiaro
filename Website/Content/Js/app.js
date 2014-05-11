@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 	InterfaceController.Initialize();
 
-	// Drag des éléments de base dans la preview
+	// Draggable des éléments de base dans la preview
 	$('.elementHidden').draggable({
 		start: function(event, ui){
 			InterfaceController.draggableFunction(event, ui);
@@ -59,7 +59,7 @@ $(document).ready(function(){
 		connectWith: '#preview',
 	});
 
-	// Re-Drag des éléments déjà en place dans la preview
+	// Re-Draggable des éléments déjà en place dans la preview
 	$('#preview').sortable({
 		placeholder: "ui-state-highlight",
 		connectWith: '#preview',
@@ -76,7 +76,10 @@ $(document).ready(function(){
   		accept: '.elementHidden',
   	});
 
-	// Process the inspect element
+	// On lance l'inspecteur d'élément au click sur un élément
+	// Sauf si l'élément cliqué est le bouton de suppression
+
+	// On bind le hover sur les éléments pour ajouter le bouton de suppression
   	$('#preview').on('click', '*', function(e){
   		if($(this).hasClass('deleteElement')){
   			$(this).parent().remove();
@@ -95,7 +98,7 @@ $(document).ready(function(){
   		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0)
   			return false;
 
-  		$(this).prepend('<div class="deleteElement">X</div>');
+  		Interface.appendDeleteButton($(this));
   	}).on('mouseleave', '*', function(e){
   		e.preventDefault();
   		e.stopPropagation();
