@@ -3,11 +3,12 @@ function InspectorView(){
 	// TODO: Ajouter un attribut content le type
 	this.GeneralProperties = [
 		{Title: 'Style', properties: [
+			{label: 'Largeur', name: 'width', tool: 'sizePicker'},
+			{label: 'Hauteur', name: 'height', tool: 'sizePicker'},
 			{label: 'Couleur', name: 'color', tool: 'colorPicker'},
 			{label: 'Couleur de fond', name: 'background-color', tool: 'colorPicker'},
 			{label: 'Police', name: 'font-family', tool: 'fontPicker'},
-			{label: 'Taille texte', name: 'font-size', tool: 'sizePicker'},
-			{label: 'Texte', name: 'text'}
+			{label: 'Taille texte', name: 'font-size', tool: 'sizePicker'}
 		]},
 		{Title: 'Espacement', properties: [
 			{label: 'Marge extérieur', name: 'margin', tool: 'margePicker'},

@@ -9,6 +9,10 @@ $(document).ready(function(){
 				$this.addClass('rightOpen').addClass('open');
 				$this.removeClass('rightClose').removeClass('close');
 			});
+
+			$('#preview').css({
+				width: ($('#preview').outerWidth() + 170) + 'px'
+			});
 		}
 		else {
 			$this = $(this);
@@ -17,6 +21,10 @@ $(document).ready(function(){
 				$this.children('img').attr('src', url + '/open.png');
 				$this.addClass('open');
 				$this.removeClass('close');
+			});
+
+			$('#preview').css({
+				height: ($('#preview').outerHeight() + 80) + 'px'
 			});
 		}
 	});
@@ -30,6 +38,10 @@ $(document).ready(function(){
 				$this.addClass('rightClose').addClass('close');
 				$this.removeClass('rightOpen').removeClass('open');
 			});
+
+			$('#preview').css({
+				width: ($('#preview').outerWidth() - 174) + 'px'
+			});
 		}
 		else {
 			$this = $(this);
@@ -38,6 +50,10 @@ $(document).ready(function(){
 				$this.children('img').attr('src', url + '/close.png');
 				$this.addClass('close');
 				$this.removeClass('open');
+			});
+
+			$('#preview').css({
+				height: ($('#preview').outerHeight() - 85) + 'px'
 			});
 		}
 	});
@@ -118,4 +134,13 @@ $(document).ready(function(){
   	$('#properties').on('keyup', 'input.propertyInput', function(){
   		InspectorController.modifyElement($(this));
   	});
+
+  	// Resize preview
+  	var rightToolbarWidth = $('#right-toolbar').css('width').substring(0, $('#right-toolbar').css('width').length - 2);
+	var bottomToolbarHeight = $('#bottom-toolbar').css('height').substring(0, $('#bottom-toolbar').css('height').length - 2);
+
+	$('#preview').css({
+		width: ($('#preview').css('width').substring(0, $('#preview').css('width').length - 2) - rightToolbarWidth - 13) + 'px',
+		height: ($('#preview').css('height').substring(0, $('#preview').css('height').length - 2) - bottomToolbarHeight - 13) + 'px',
+	});
 });
