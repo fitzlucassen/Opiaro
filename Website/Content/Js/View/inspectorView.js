@@ -2,21 +2,21 @@ function InspectorView(){
 	// TODO: Récupérer ces données côté PHP ?
 	// TODO: Ajouter un attribut content le type
 	this.GeneralProperties = [
-		{Title: 'Selecteurs', properties: [
-			{label: 'id', name: 'id'},
-			{label: 'class', name: 'class'}
-		]}, 
 		{Title: 'Style', properties: [
-			{label: 'Couleur', name: 'color'},
-			{label: 'Couleur de fond', name: 'background-color'},
-			{label: 'Police', name: 'font-family'},
-			{label: 'Taille texte', name: 'font-size'},
+			{label: 'Couleur', name: 'color', tool: 'colorPicker'},
+			{label: 'Couleur de fond', name: 'background-color', tool: 'colorPicker'},
+			{label: 'Police', name: 'font-family', tool: 'fontPicker'},
+			{label: 'Taille texte', name: 'font-size', tool: 'sizePicker'},
 			{label: 'Texte', name: 'text'}
 		]},
 		{Title: 'Espacement', properties: [
-			{label: 'Marge extérieur', name: 'margin'},
-			{label: 'Marge intérieur', name: 'padding'},
-			{label: 'Bordure', name: 'border'},
+			{label: 'Marge extérieur', name: 'margin', tool: 'margePicker'},
+			{label: 'Marge intérieur', name: 'padding', tool: 'margePicker'},
+			{label: 'Bordure', name: 'border', tool: 'borderPicker' },
+		]},
+		{Title: 'Selecteurs', properties: [
+			{label: 'id', name: 'id'},
+			{label: 'class', name: 'class'}
 		]}
 	];
 	this.FieldProperties = ['name', 'value', 'placeholder'];
@@ -45,22 +45,54 @@ InspectorView.prototype.appendProperty = function(property, element){
 
 	// Si il y a un attribut style dans l'élément
 	if(element.css(property.name))
-		value = element.css(property.name);
+		value = this.getStyle(element, property.name);
+
+	if(property.tool == 'colorPicker')
+		value = value.toHex();
 
 	// Et on ajoute la propriété à l'inspecteur
 	$('#properties .propertiesContainer').append(
 		'<div class="property">' + 
 			'<span class="label">' + property.label + '</span>' +
-			'<input type="text" data-val="' + element.attr('id') + '" class="propertyInput" value="' + value + '" name="' + property.name + '" />' +
+			'<input type="text" data-val="' + element.attr('id') + '" class="propertyInput ' + property.tool + 'Tool" value="' + value + '" name="' + property.name + '" />' +
 		'</div>'
 	);
 };
 
+InspectorView.prototype.getStyle = function(element, property){
+	var style;
+	var propertyTemp;
+
+	if(property.indexOf('-') >= 0){
+		propertyTemp = property.substring(0, property.indexOf('-'));
+		propertyTemp += property.substring(property.indexOf('-') + 1, property.length).ucfirst();
+
+	}
+	else {
+		propertyTemp = property;
+	}
+
+	style = element[0].style[propertyTemp];
+
+	if(style == '')
+		return element.css(property);
+	else
+		return style;
+}
+
 // Change le style d'un élément
 InspectorView.prototype.changeStyle = function(element){
-	$('#' + element.attr('data-val')).css(
-		element.attr('name'), element.val()
-	);
+
+	if(element.hasClass('sizePickerTool')){
+		$('#' + element.attr('data-val')).css(
+			element.attr('name'), element.val() + element.siblings('select').val()
+		);
+	}
+	else {
+		$('#' + element.attr('data-val')).css(
+			element.attr('name'), element.val()
+		);
+	}
 };
 
 // Change les identifiants d'un élément

@@ -90,7 +90,12 @@ $(document).ready(function(){
   		e.stopPropagation();
 
   		$('#properties .propertiesContainer').html('');
+
   		InspectorController.showInInspector($(this));
+
+  		// Initialisation des outils pour l'inspecteur
+  		ToolManager.initialize('properties');
+
   	}).on('mouseover', '*', function(e){
   		e.preventDefault();
   		e.stopPropagation();
