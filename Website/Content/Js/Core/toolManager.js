@@ -9,6 +9,9 @@ var ToolManager = {
 		$('.sizePickerTool').each(function(){
 			ToolManager.sizePicker($(this));
 		});
+		$('.fontPickerTool').each(function(){
+			ToolManager.fontPicker($(this));
+		});
 	},
 
 	colorPicker: function(sender){
@@ -40,8 +43,30 @@ var ToolManager = {
 		});
 	},
 
-	fontPicker: function(){
-
+	fontPicker: function(sender){
+		sender.autocomplete({
+	      	source: [
+	      		"Verdana",
+	      		"Helvetica",
+	      		"Arial",
+	      		"Times New Roman",
+	      		"Georgia",
+	      		"Monospace",
+	      		"Sans-serif",
+	      		"Comic Sans MS",
+	      		"Courier New",
+	      		"Impact",
+	      		"Lucida Console",
+	      		"Trebuchet MS",
+	      		"MS Sans Serif",
+	      		"Tahoma"
+	     	],
+	     	select: function( event, ui ) {
+	     		sender.trigger('keyup');
+	     	}
+	    }).focus(function(){            
+            $(this).autocomplete("search");
+    	});
 	},
 
 	sizePicker: function(sender){

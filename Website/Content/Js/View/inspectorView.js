@@ -50,6 +50,8 @@ InspectorView.prototype.appendProperty = function(property, element){
 
 	if(property.tool == 'colorPicker')
 		value = value.toHex();
+	if(property.tool == 'fontPicker')
+		value = value.replaceAll('\'', '');
 
 	// Et on ajoute la propriété à l'inspecteur
 	$('#properties .propertiesContainer').append(

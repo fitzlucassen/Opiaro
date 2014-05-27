@@ -27,6 +27,7 @@
 <link rel="apple-touch-icon" sizes="114x114" href="../favicon114.png" />
 
 <link type="text/css" rel="stylesheet" href="/<?php echo __css_directory__; ?>/Base/reset.css" />
+<link type="text/css" rel="stylesheet" href="/<?php echo __css_directory__; ?>/Base/jquery-ui-1.10.3.custom.css" />
 <link type="text/css" rel="stylesheet" href="/<?php echo __css_directory__; ?>/Base/base.css" />
 
 <!-- Required script -->
