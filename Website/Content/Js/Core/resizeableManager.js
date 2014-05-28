@@ -60,6 +60,7 @@ var ResizeableManager = {
 	},
 
 	deleteHandlers: function(element){
+		element.resizable();
 		element.resizable( "destroy" );
 		element.sortable({
 			placeholder: "ui-state-highlight",
