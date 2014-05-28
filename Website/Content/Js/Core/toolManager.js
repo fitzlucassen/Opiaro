@@ -78,6 +78,7 @@ var ToolManager = {
 				'<option value="px">px</option>' +
 				'<option value="em">em</option>' +
 				'<option value="pt">pt</option>' +
+				'<option value="%">%</option>' +
 			'</select>'
 		);
 

@@ -28,3 +28,51 @@
 	border: 1px dashed gray;
 }
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+
+
+#nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+#nwgrip {
+    left: -5px;
+    top: -5px;
+    cursor: nwse-resize !important;
+}
+#negrip{
+     top: -5px;
+     right: -5px;
+     cursor: nesw-resize !important;
+}
+#swgrip{
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize !important;
+}
+#segrip{
+     bottom: -5px;
+    right:-5px;
+    cursor: nwse-resize !important;
+}
+#ngrip{
+    top: -5px;
+    left:50%;
+    cursor:ns-resize !important;
+}
+#sgrip{
+     bottom: -5px;
+    left: 50%;
+    cursor:ns-resize !important;
+}
+#wgrip{
+     left:-5px;
+     top:50%;
+     cursor:ew-resize !important;
+}
+#egrip{
+     right:-5px;
+     top:50%;
+     cursor:ew-resize !important;
+}

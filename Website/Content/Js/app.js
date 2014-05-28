@@ -112,11 +112,15 @@ $(document).ready(function(){
   		// Initialisation des outils pour l'inspecteur
   		ToolManager.initialize('properties');
 
+  		// Supprime tous les resizehandlers
+  		ResizeableManager.deleteAllHandlers();
+  		// Ajoute le handler sur l'élément sélectionné
+  		ResizeableManager.appendHanlders($(this));
   	}).on('mouseover', '*', function(e){
   		e.preventDefault();
   		e.stopPropagation();
 
-  		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0)
+  		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0 || $(this).hasClass('ui-resizable-handle'))
   			return false;
 
   		Interface.appendDeleteButton($(this));

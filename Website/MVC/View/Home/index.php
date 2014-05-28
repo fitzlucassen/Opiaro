@@ -12,6 +12,7 @@
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/base64Manager.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/templateParser.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/toolManager.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Core/resizeableManager.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/interfaceManagerView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/inspectorView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/interfaceManagerController.js"></script>
@@ -77,4 +78,8 @@
 <div id="toolPopinGreyback">
 	<div id="toolPopin">
 	</div>
+</div>
+
+<div id="resizeAble">
+
 </div>
