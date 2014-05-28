@@ -79,7 +79,3 @@
 	<div id="toolPopin">
 	</div>
 </div>
-
-<div id="resizeAble">
-
-</div>

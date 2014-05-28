@@ -1,9 +1,5 @@
 var ResizeableManager = {
-	_elements: [],
-
 	appendHanlders: function(element){
-		this._elements.push(element);
-
 		element.css({
 			'position': 'relative',
 			'top': 0,
@@ -55,7 +51,7 @@ var ResizeableManager = {
 		// Lorsqu'on resize on ne sort plus
 		element.sortable( "destroy" );
 
-		// Si on clique ailleurs on vire tout
+		// Si on clique ailleurs on vire tout les resize handlers
 		$('body').click(function(e){
 			if(e.target.id != element.attr('id')){
 				ResizeableManager.deleteAllHandlers();
@@ -72,25 +68,11 @@ var ResizeableManager = {
 			cancel: 'option'
 		});
 		element.children('.ui-resizable-handle').remove();
-
-		this._elements.remove(element);
 	},
 
 	deleteAllHandlers: function(){
-		var elsTemps = this._elements;
-		for(var e in elsTemps){
-			if(typeof(elsTemps[e]) == 'function')
-				continue;
-
-			elsTemps[e].resizable( "destroy" );
-			elsTemps[e].sortable({
-				placeholder: "ui-state-highlight",
-				connectWith: '#preview',
-				cursor: 'pointer',
-				cancel: 'option'
-			});
-			elsTemps[e].children('.ui-resizable-handle').remove();
-		}
-		this._elements = [];
+		$('.ui-resizable').each(function(){
+			ResizeableManager.deleteHandlers($(this));	
+		});
 	}
 };

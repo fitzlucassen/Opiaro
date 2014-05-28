@@ -57,7 +57,6 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 	}
   	// On supprime la div draggé
 	draggableDiv.remove();
-
 	// On bind ensuite sur tous les fils de la div droppable la plus proche, le comportement de droppable et sortable
 	droppableDiv.children().droppable({
 		drop: function(event, ui) {
@@ -67,9 +66,12 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   		hoverClass: "draghover",
   		greedy: true
   	}).sortable({
-		placeholder: "ui-state-highlight",
 		connectWith: '#preview',
 		cursor: 'pointer',
-		cancel: 'option'
+		cancel: 'option',
+		start: function(event, ui){
+			// Supprime tous les resizehandlers
+  			ResizeableManager.deleteAllHandlers();
+		}
 	});
 }

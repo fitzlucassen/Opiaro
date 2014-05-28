@@ -35,7 +35,7 @@ InterfaceManagerView.prototype.appendDeleteButton = function(context){
 // Change de place un élément déjà présent dans la preview
 InterfaceManagerView.prototype.moveDraggableDiv = function(container, content){
 	container.append($('<div id="tempDiv">').append(content).html());
-	container.children(content).css({position: 'static'});
+	container.children(content).css({position: 'relative', 'top':0, 'left':0});
 	$('<div id="tempDiv">').remove();
 }
 
