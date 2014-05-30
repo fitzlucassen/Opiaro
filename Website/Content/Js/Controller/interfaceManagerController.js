@@ -7,8 +7,20 @@ function InterfaceManagerController(view){
 // Initialise l'application en ajoutant la liste des éléments draggable au DOM
 InterfaceManagerController.prototype.Initialize = function(){
 	for(var i in this.view.elements){
-		if(this.view.elements[i].element != '' && this.view.elements[i].element != null)
-			this.view.appendElements(Base64.encode(this.view.elements[i].element), this.view.elements[i].title);
+		if(this.view.elements[i].category != '' && this.view.elements[i].category != null){
+			this.view.appendCategory(this.view.elements[i].category);
+		}
+	}
+};
+
+// Initialise l'application en ajoutant la liste des éléments draggable au DOM
+InterfaceManagerController.prototype.appendElements = function(category){
+	var es = this.view.getElementsByCategory(category).elements;
+
+	for(var i in es){
+		if(es[i].title != '' && es[i].title != null){
+			this.view.appendElements(Base64.encode(es[i].element), es[i].title);
+		}
 	}
 };
 
@@ -76,10 +88,20 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 	});
 };
 
-InterfaceManagerController.prototype.appendComplexElements = function(){
+InterfaceManagerController.prototype.InitializeComplex = function(){
 	for(var i in this.view.complexElements){
-		if(this.view.complexElements[i].elements != '' && this.view.complexElements[i].elements != null)
-			this.view.appendElements(Base64.encode(this.getComplexElementHtml(this.view.complexElements[i].elements, '')), this.view.complexElements[i].title);
+		if(this.view.complexElements[i].category != '' && this.view.complexElements[i].category != null){
+			this.view.appendCategory(this.view.complexElements[i].category, true);
+		}
+	}
+};
+
+InterfaceManagerController.prototype.appendComplexElements = function(category){
+	var es = this.view.getComplexElementsByCategory(category).elements;
+
+	for(var i in es){
+		if(es[i].title != '' && es[i].title != null)
+			this.view.appendElements(Base64.encode(this.getComplexElementHtml(es[i].elements)), es[i].title);
 	}
 
 	var that = this;

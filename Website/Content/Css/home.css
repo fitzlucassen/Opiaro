@@ -118,22 +118,24 @@
 	padding-top: 1px;
 }
 
-.element{
+.element, .categoryOfElement{
+	font-size: 12px;
 	border-radius: 2px;
 	position: relative;
 	background: white;
 	display: inline-block;
-	width: 70px;
-	height: 70px;
+	width: 60px;
+	height: 60px;
 	background: #c0e3f0;
 	border: 1px solid #00b1d5;
 	margin: 5px;
 	color: #00b1d5;
+	padding: 10px 5px 0 5px;
 
 	vertical-align: top;
 	text-align: center;
 
-	cursor: move;
+	cursor: pointer;
 }
 
 .elementHidden{
@@ -144,10 +146,11 @@
 	border-radius: 2px;
 	background: #c0e3f0;
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 60px;
+	height: 60px;
 	border: 1px solid #00b1d5;
 	color: #00b1d5;
+	padding: 10px 5px 0 5px;
 
 	vertical-align: top;
 	text-align: center;
@@ -156,7 +159,7 @@
 	cursor: move;
 }
 
-.element:hover{
+.element:hover, .categoryOfElement:hover{
 	background: #00b1d5;
 	color: white;
 }
@@ -248,4 +251,30 @@
 	width: 25%;
 	vertical-align:middle;
 	margin-left: 5px;
+}
+
+
+#tooltipBoard{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 10px;
+	font-size: 12px;
+
+	background: #111;
+
+	width: auto;
+	height: 200px;
+
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-o-border-radius: 4px;
+	-ms-border-radius: 4px;
+
+	box-shadow: 0 0 10px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+	-o-box-shadow: 0 0 10px rgba(0,0,0,0.6);
+	-ms-box-shadow: 0 0 10px rgba(0,0,0,0.6);
 }

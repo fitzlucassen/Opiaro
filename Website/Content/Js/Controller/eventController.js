@@ -4,6 +4,8 @@ function EventController(controller, iController){
 }
 
 EventController.prototype.InitializeInterfaceEvent = function() {
+	var that = this;
+
 	// animation toggle toolbar
 	$('#global').on('click', '.close', function(){
 		if($(this).hasClass('rightClose')){
@@ -68,19 +70,37 @@ EventController.prototype.InitializeInterfaceEvent = function() {
 		width: ($('#preview').css('width').substring(0, $('#preview').css('width').length - 2) - rightToolbarWidth - 13) + 'px',
 		height: ($('#preview').css('height').substring(0, $('#preview').css('height').length - 2) - bottomToolbarHeight - 13) + 'px',
 	});
+
+	$('#bottom-toolbar').on('click', '.categoryOfElement, .categoryOfElementComplex', function(){
+
+		if($('#tooltipBoard').css('display') == 'none'){
+			$('#tooltipBoard').html('');
+
+			if($(this).hasClass('categoryOfElementComplex'))
+				that.interfaceController.appendComplexElements($(this).attr('data-category'));
+			else
+				that.interfaceController.appendElements($(this).attr('data-category'));
+
+			$('#tooltipBoard').fadeIn(500);
+			$('#tooltipBoard').css({top: '-170px'});
+
+			// Draggable des éléments de base dans la preview
+			$('.elementHidden').draggable({
+				start: function(event, ui){
+					that.interfaceController.draggableFunction(event, ui);
+				},
+				connectWith: '#preview',
+			});
+		}
+		else {
+			$('#tooltipBoard').fadeOut(500);
+		}
+	});
 };
 
 
 EventController.prototype.InitializeAppEvent = function(){
 	var that = this;
-
-	// Draggable des éléments de base dans la preview
-	$('.elementHidden').draggable({
-		start: function(event, ui){
-			that.interfaceController.draggableFunction(event, ui);
-		},
-		connectWith: '#preview',
-	});
 
 	// Re-Draggable des éléments déjà en place dans la preview
 	$('#preview').sortable({
@@ -94,6 +114,7 @@ EventController.prototype.InitializeAppEvent = function(){
 	$('#preview').droppable({
 		drop: function(event, ui) {
 			that.interfaceController.droppableFunction(event, ui);
+			$('#tooltipBoard').fadeOut(500);
   		},
   		greedy: true,
   		accept: '.elementHidden',
@@ -146,7 +167,7 @@ EventController.prototype.InitializeAppEvent = function(){
   	// Tabs manager
 	$('#complexElements').click(function(){
 		that.interfaceController.view.goToComplexElements();
-		that.interfaceController.appendComplexElements();
+		that.interfaceController.InitializeComplex();
 	});
 	$('#simpleElements').click(function(){
 		that.interfaceController.view.goToSimpleElements();

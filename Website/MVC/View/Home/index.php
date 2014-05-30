@@ -67,6 +67,10 @@
 		<div class="tab inlineBlock vMiddle">
 			<h2 id="complexElements">Éléments complexes</h2>
 		</div>
+
+		<div id="tooltipBoard">
+			
+		</div>
 	</div>
 
 	<div id="elements">
