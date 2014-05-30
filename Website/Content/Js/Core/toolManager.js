@@ -60,13 +60,8 @@ var ToolManager = {
 	      		"Trebuchet MS",
 	      		"MS Sans Serif",
 	      		"Tahoma"
-	     	],
-	     	select: function( event, ui ) {
-	     		sender.trigger('keyup');
-	     	}
-	    }).focus(function(){            
-            $(this).autocomplete("search");
-    	});
+	     	]
+	    });
 	},
 
 	sizePicker: function(sender){

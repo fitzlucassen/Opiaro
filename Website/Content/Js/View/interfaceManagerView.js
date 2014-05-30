@@ -1,19 +1,53 @@
 function InterfaceManagerView(){
 	this.elements = [
-		{title: 'Bloc', element: '<div >Votre bloc</div>'},
-		{title: 'Haut de page', element: '<header >Votre Header</header>'},
-		{title: 'Pied de page', element: '<footer >Votre Footer</footer>'},
-		{title: 'Formulaire', element: '<form action="" method="post" enctype="multipart/form-data">Votre formulaire</form>'},
+		{id: 1, title: 'Bloc', element: '<div ></div>'},
+		{id: 2, title: 'Haut de page', element: '<header ></header>'},
+		{id: 3, title: 'Pied de page', element: '<footer ></footer>'},
+		{id: 4, title: 'Formulaire', element: '<form action="" method="post" enctype="multipart/form-data" ></form>'},
 
-		{title: 'Titre', element: '<h1 >Titre</h1>'},
-		{title: 'Sous-titre', element: '<h2 >Sous-titre</h2>'},
-		{title: 'Paragraphe', element: '<p >Lorem ipsum dolor sit amet</p>'},
+		{id: 5, title: 'Titre', element: '<h1 >Titre</h1>'},
+		{id: 6, title: 'Sous-titre', element: '<h2 >Sous-titre</h2>'},
+		{id: 7, title: 'Paragraphe', element: '<p >Lorem ipsum dolor sit amet</p>'},
 
-		{title: 'Champs texte', element: '<input type="text" value="value" name="" />'},
-		{title: 'Case à cocher', element: '<input type="checkbox" value="value" name="" />'},
-		{title: 'Bouton radio', element: '<input type="radio" value="value" name="" />'},
-		{title: 'Légende', element: '<label >Votre label</label>'}
+		{id: 8, title: 'Champs texte', element: '<input type="text" value="value" name="" />'},
+		{id: 9, title: 'Case à cocher', element: '<input type="checkbox" value="value" name="" />'},
+		{id: 10, title: 'Bouton radio', element: '<input type="radio" value="value" name="" />'},
+		{id: 11, title: 'Légende', element: '<label >Votre label</label>'},
+		{id: 12, title: 'Bouton', element: '<input type="submit" value="Ok" name="" />'}
 	];
+
+	this.complexElements = [
+		{title: 'Formulaire de connexion', elements: [
+			{e: 1, children: [
+				{e: 4, children: [
+					{e: 11, children: []},
+					{e: 8, children: []},
+					{e: 11, children: []},
+					{e: 8, children: []},
+					{e: 12, children: []}
+				]},
+				{e: 4, children: [
+					{e: 11, children: []},
+					{e: 8, children: []},
+					{e: 11, children: []},
+					{e: 8, children: []},
+					{e: 12, children: []}
+				]}
+			]}
+		]}
+	];
+}
+
+InterfaceManagerView.prototype.goToComplexElements = function(){
+	$('#elements').html('');
+	$('#simpleElements').parent().removeClass('active');
+	$('#complexElements').parent().addClass('active');
+}
+
+InterfaceManagerView.prototype.goToSimpleElements = function(){
+	$('#elements').html('');
+	$('#simpleElements').parent().addClass('active');
+	$('#complexElements').parent().removeClass('active');
 }
 
 // Ajoute un élément draggable dans la liste des éléments
@@ -50,4 +84,18 @@ InterfaceManagerView.prototype.insertIdAttribut = function(element, guid){
 	elementTmp += ' ' + element.substr(element.indexOf(' '), element.length);
 
 	return elementTmp;
+};
+
+InterfaceManagerView.prototype.getElementById = function(id) {
+	var found = false;
+	var cpt = 0;
+	while(!found && cpt < this.elements.length){
+		found = this.elements[cpt].id == id;
+		cpt++;
+	}
+
+	if(found)
+		return this.elements[cpt-1];
+	else
+		return null;
 };

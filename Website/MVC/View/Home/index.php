@@ -17,6 +17,7 @@
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/View/inspectorView.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/interfaceManagerController.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/inspectorManagerController.js"></script>
+<script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/Controller/eventController.js"></script>
 <script type="text/javascript" src="/<?php echo __js_directory__  ; ?>/app.js"></script>
 <?php
     // inclure ci-dessus les balises à inclure dans la balise <head> du layout
@@ -61,13 +62,10 @@
 		</div>
 
 		<div class="tab inlineBlock vMiddle active">
-			<h2>Éléments</h2>
+			<h2 id="simpleElements">Éléments</h2>
 		</div>
 		<div class="tab inlineBlock vMiddle">
-			<h2>Éléments complexes</h2>
-		</div>
-		<div class="tab inlineBlock vMiddle">
-			<h2>SeoBlock</h2>
+			<h2 id="complexElements">Éléments complexes</h2>
 		</div>
 	</div>
 

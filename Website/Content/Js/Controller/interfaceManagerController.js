@@ -74,4 +74,40 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
   			ResizeableManager.deleteAllHandlers();
 		}
 	});
-}
+};
+
+InterfaceManagerController.prototype.appendComplexElements = function(){
+	for(var i in this.view.complexElements){
+		if(this.view.complexElements[i].elements != '' && this.view.complexElements[i].elements != null)
+			this.view.appendElements(Base64.encode(this.getComplexElementHtml(this.view.complexElements[i].elements, '')), this.view.complexElements[i].title);
+	}
+
+	var that = this;
+	$('.elementHidden').draggable({
+		start: function(event, ui){
+			that.draggableFunction(event, ui);
+		},
+		connectWith: '#preview',
+	});
+};
+
+InterfaceManagerController.prototype.getComplexElementHtml = function(tree, htmlHeritate) {
+	var html = '';
+	var $this = this;
+
+	for(var i = 0; i < tree.length; i++){
+		if(tree[i].children.length == 0){
+			html += $this.view.getElementById(tree[i].e).element;
+		}
+		else {
+			html = $this.view.getElementById(tree[i].e).element;
+			if(htmlHeritate.indexOf(' >') >= 0){
+				return $this.getComplexElementHtml(tree[i].children, htmlHeritate.substring(0, htmlHeritate.lastIndexOf(' >') + 2) + html + htmlHeritate.substring(htmlHeritate.lastIndexOf(' >') + 2, htmlHeritate.length));
+			}
+			else {
+				return $this.getComplexElementHtml(tree[i].children, html);
+			}
+		}
+	}
+	return htmlHeritate.substring(0, htmlHeritate.lastIndexOf(' >') + 2) + html + htmlHeritate.substring(htmlHeritate.lastIndexOf(' >') + 2, htmlHeritate.length);
+};

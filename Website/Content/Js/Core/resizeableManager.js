@@ -45,6 +45,13 @@ var ResizeableManager = {
 		    			$(this).siblings('select').val('px');
 		    		}
 		    	});
+		    },
+		    stop: function(event, ui){
+		    	element.css({
+		    		'position':'relative',
+		    		'top':0,
+		    		'left':0
+		    	})
 		    }
 		});
 
