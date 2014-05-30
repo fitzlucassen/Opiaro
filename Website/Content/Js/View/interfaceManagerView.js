@@ -10,6 +10,9 @@ function InterfaceManagerView(){
 		{id: 7, title: 'Paragraphe', element: '<p >Lorem ipsum dolor sit amet</p>'},
 
 		{id: 8, title: 'Champs texte', element: '<input type="text" value="value" name="" />'},
+		{id: 13, title: 'Champs mot de passe', element: '<input type="password" value="value" name="" />'},
+		{id: 14, title: 'Champs e-mail', element: '<input type="email" value="value" name="" />'},
+		{id: 15, title: 'Espace texte', element: '<textarea name="" rows="4" cols="20"></textarea>'},
 		{id: 9, title: 'Case à cocher', element: '<input type="checkbox" value="value" name="" />'},
 		{id: 10, title: 'Bouton radio', element: '<input type="radio" value="value" name="" />'},
 		{id: 11, title: 'Légende', element: '<label >Votre label</label>'},
@@ -23,11 +26,24 @@ function InterfaceManagerView(){
 					{e: 11, children: []},
 					{e: 8, children: []},
 					{e: 11, children: []},
-					{e: 8, children: []},
+					{e: 13, children: []},
 					{e: 12, children: []}
 				]}
 			]}
-		]}
+		]},
+		{title: 'Formulaire de contact', elements: [
+			{e: 1, children: [
+				{e: 4, children: [
+					{e: 11, children: []},
+					{e: 8, children: []},
+					{e: 11, children: []},
+					{e: 14, children: []},
+					{e: 11, children: []},
+					{e: 15, children: []},
+					{e: 12, children: []}
+				]}
+			]}
+		]},
 	];
 }
 

@@ -89,14 +89,16 @@ InterfaceManagerController.prototype.appendComplexElements = function(){
 		},
 		connectWith: '#preview',
 	});
-};
+};	
 
 InterfaceManagerController.prototype.getComplexElementHtml = function(tree) {
 	var html = '';
 	var $this = this;
 
 	for(var i = 0; i < tree.length; i++){
-		var tmp = $this.view.getElementById(tree[i].e).element;
+
+		var tmp = $this.view.insertIdAttribut($this.view.getElementById(tree[i].e).element, $this.Guid);
+		$this.Guid++;
 		html += tmp.substring(0, tmp.lastIndexOf(' >') + 2);
 
 		if(tree[i].children.length > 0){
