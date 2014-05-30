@@ -71,16 +71,22 @@ EventController.prototype.InitializeInterfaceEvent = function() {
 		height: ($('#preview').css('height').substring(0, $('#preview').css('height').length - 2) - bottomToolbarHeight - 13) + 'px',
 	});
 
+	// Click on a category of elements
 	$('#bottom-toolbar').on('click', '.categoryOfElement, .categoryOfElementComplex', function(){
 
-		if($('#tooltipBoard').css('display') == 'none'){
+		// If it's an opening action
+		if($('#tooltipBoard').css('display') == 'none' || $('#tooltipBoard').attr('data-category') != $(this).attr('data-category')){
+			// Empty the board
 			$('#tooltipBoard').html('');
 
+			// Append elements
 			if($(this).hasClass('categoryOfElementComplex'))
 				that.interfaceController.appendComplexElements($(this).attr('data-category'));
 			else
 				that.interfaceController.appendElements($(this).attr('data-category'));
 
+			// Show the board
+			$('#tooltipBoard').attr('data-category', $(this).attr('data-category'));
 			$('#tooltipBoard').fadeIn(500);
 			$('#tooltipBoard').css({top: '-170px'});
 
@@ -92,6 +98,7 @@ EventController.prototype.InitializeInterfaceEvent = function() {
 				connectWith: '#preview',
 			});
 		}
+		// Else, it's a closing action
 		else {
 			$('#tooltipBoard').fadeOut(500);
 		}
@@ -114,6 +121,8 @@ EventController.prototype.InitializeAppEvent = function(){
 	$('#preview').droppable({
 		drop: function(event, ui) {
 			that.interfaceController.droppableFunction(event, ui);
+
+			// Close the tooltip for draggable
 			$('#tooltipBoard').fadeOut(500);
   		},
   		greedy: true,
@@ -178,7 +187,7 @@ EventController.prototype.InitializeAppEvent = function(){
 			start: function(event, ui){
 				that.interfaceController.draggableFunction(event, ui);
 			},
-			connectWith: '#preview',
+			connectWith: '#preview'
 		});
 	});
 

@@ -69,7 +69,6 @@
 		</div>
 
 		<div id="tooltipBoard">
-			
 		</div>
 	</div>
 

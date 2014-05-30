@@ -54,6 +54,9 @@ InterfaceManagerController.prototype.droppableFunction = function(event, ui){
 
 	// On décode le data-val de l'élément draggé qui correspond au html de l'élément encodé en base64
 	var htmlInString = Base64.decode(dataValAttr);
+	if(htmlInString.indexOf('<div') >= 0 || htmlInString.indexOf('<header') >= 0 || htmlInString.indexOf('<footer') >= 0)
+		htmlInString = this.view.insertLoremIpsum(htmlInString);
+	
 	// On crée un ID unique pour cet élément
 	htmlInString = this.view.insertIdAttribut(htmlInString, this.Guid);
 	this.Guid++;

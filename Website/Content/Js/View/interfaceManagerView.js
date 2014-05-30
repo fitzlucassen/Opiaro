@@ -111,6 +111,14 @@ InterfaceManagerView.prototype.insertIdAttribut = function(element, guid){
 	return elementTmp;
 };
 
+InterfaceManagerView.prototype.insertLoremIpsum = function(element){
+	elementTmp = element.substr(0, element.indexOf('><') + 1);
+	elementTmp += 'LOREM IPSUM';
+	elementTmp += element.substr(element.indexOf('><') + 1, element.length);
+
+	return elementTmp;
+};
+
 InterfaceManagerView.prototype.getElementById = function(id) {
 	var found = false;
 	var cpt = 0;
@@ -118,7 +126,7 @@ InterfaceManagerView.prototype.getElementById = function(id) {
 
 	while(!found && cpt < this.elements.length){
 		cpt2 = 0;
-		
+
 		while(!found && cpt2 < this.elements[cpt].elements.length){
 			found = this.elements[cpt].elements[cpt2].id == id;
 			cpt2++;
