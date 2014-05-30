@@ -91,23 +91,19 @@ InterfaceManagerController.prototype.appendComplexElements = function(){
 	});
 };
 
-InterfaceManagerController.prototype.getComplexElementHtml = function(tree, htmlHeritate) {
+InterfaceManagerController.prototype.getComplexElementHtml = function(tree) {
 	var html = '';
 	var $this = this;
 
 	for(var i = 0; i < tree.length; i++){
-		if(tree[i].children.length == 0){
-			html += $this.view.getElementById(tree[i].e).element;
+		var tmp = $this.view.getElementById(tree[i].e).element;
+		html += tmp.substring(0, tmp.lastIndexOf(' >') + 2);
+
+		if(tree[i].children.length > 0){
+			html += $this.getComplexElementHtml(tree[i].children);
 		}
-		else {
-			html = $this.view.getElementById(tree[i].e).element;
-			if(htmlHeritate.indexOf(' >') >= 0){
-				return $this.getComplexElementHtml(tree[i].children, htmlHeritate.substring(0, htmlHeritate.lastIndexOf(' >') + 2) + html + htmlHeritate.substring(htmlHeritate.lastIndexOf(' >') + 2, htmlHeritate.length));
-			}
-			else {
-				return $this.getComplexElementHtml(tree[i].children, html);
-			}
-		}
+
+		html += tmp.substring(tmp.lastIndexOf(' >') + 2, tmp.length);
 	}
-	return htmlHeritate.substring(0, htmlHeritate.lastIndexOf(' >') + 2) + html + htmlHeritate.substring(htmlHeritate.lastIndexOf(' >') + 2, htmlHeritate.length);
+	return html;
 };

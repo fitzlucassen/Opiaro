@@ -113,7 +113,7 @@ EventController.prototype.InitializeAppEvent = function(){
   		// Vide l'inspecteur au cas où il serait déjà remplit
   		$('#properties .propertiesContainer').html('');
   		// Decleche l'inspection d'élément
-  		that.interfaceController.showInInspector($(this));
+  		that.inspectorController.showInInspector($(this));
   		// Initialisation des outils pour l'inspecteur
   		ToolManager.initialize('properties');
   		// Supprime tous les resizehandlers
@@ -127,7 +127,7 @@ EventController.prototype.InitializeAppEvent = function(){
   		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0 || $(this).hasClass('ui-resizable-handle'))
   			return false;
 
-  		that.inspectorController.view.appendDeleteButton($(this));
+  		that.interfaceController.view.appendDeleteButton($(this));
   	}).on('mouseleave', '*', function(e){
   		e.preventDefault();
   		e.stopPropagation();

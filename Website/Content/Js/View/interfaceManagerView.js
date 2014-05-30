@@ -25,13 +25,6 @@ function InterfaceManagerView(){
 					{e: 11, children: []},
 					{e: 8, children: []},
 					{e: 12, children: []}
-				]},
-				{e: 4, children: [
-					{e: 11, children: []},
-					{e: 8, children: []},
-					{e: 11, children: []},
-					{e: 8, children: []},
-					{e: 12, children: []}
 				]}
 			]}
 		]}

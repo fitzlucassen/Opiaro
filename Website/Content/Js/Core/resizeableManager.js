@@ -56,6 +56,7 @@ var ResizeableManager = {
 		});
 
 		// Lorsqu'on resize on ne sort plus
+		element.sortable();
 		element.sortable( "destroy" );
 
 		// Si on clique ailleurs on vire tout les resize handlers
