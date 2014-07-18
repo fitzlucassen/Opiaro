@@ -93,11 +93,13 @@ InspectorView.prototype.changeStyle = function(element){
 		$('#' + element.attr('data-val')).css(
 			element.attr('name'), element.val() + element.siblings('select').val()
 		);
+		this.updateSelector($('#' + element.attr('data-val')));
 	}
 	else {
 		$('#' + element.attr('data-val')).css(
 			element.attr('name'), element.val()
 		);
+		this.updateSelector($('#' + element.attr('data-val')));
 	}
 };
 
@@ -115,4 +117,23 @@ InspectorView.prototype.changeIdentifiers = function(element){
 	// Pour garder le lien entre l'élément de l'inspecteur
 	if(element.attr('name') == 'id')
 		$('.propertyInput').attr('data-val', element.val());
+};
+
+// Met à jour le selector
+InspectorView.prototype.updateSelector = function(element){
+	var offset = element.offset(),
+            top = offset.top -5 - 2,
+            left = offset.left -2,
+            width = element.css('width'),
+            height = element.css('height');
+
+	$('#selector').show()
+        .css('top', top)
+        .css('left', left)
+        .css('width', element.outerWidth())
+        .css('height', element.outerHeight())
+        .find('.size').text(width + ' * ' + height);
+    element.css('position', 'relative')
+        .css('z-index', '1000');
+    $('#selector').css('z-index', '900');
 };

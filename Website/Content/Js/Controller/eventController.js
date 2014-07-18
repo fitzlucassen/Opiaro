@@ -66,9 +66,10 @@ EventController.prototype.InitializeInterfaceEvent = function() {
   	var rightToolbarWidth = $('#right-toolbar').css('width').substring(0, $('#right-toolbar').css('width').length - 2);
 	var bottomToolbarHeight = $('#bottom-toolbar').css('height').substring(0, $('#bottom-toolbar').css('height').length - 2);
 
+
 	$('#preview').css({
-		width: ($('#preview').css('width').substring(0, $('#preview').css('width').length - 2) - rightToolbarWidth - 13) + 'px',
-		height: ($('#preview').css('height').substring(0, $('#preview').css('height').length - 2) - bottomToolbarHeight - 13) + 'px',
+		width: ($('#global').css('width').substring(0, $('#global').css('width').length - 2) - rightToolbarWidth - 13) + 'px',
+		height: ($('#global').css('height').substring(0, $('#global').css('height').length - 2) - bottomToolbarHeight - 13) + 'px',
 	});
 
 	// Click on a category of elements
@@ -157,7 +158,7 @@ EventController.prototype.InitializeAppEvent = function(){
   		if($(this).hasClass('deleteElement') || $(this).children('.deleteElement').length > 0 || $(this).hasClass('ui-resizable-handle'))
   			return false;
 
-  		that.interfaceController.view.appendDeleteButton($(this));
+  		//that.interfaceController.view.appendDeleteButton($(this));
   	}).on('mouseleave', '*', function(e){
   		e.preventDefault();
   		e.stopPropagation();

@@ -3,7 +3,7 @@
 	margin: 5px;
 }
 #preview *:hover{
-	border: 1px dashed gray;
+	/*border: 1px dashed gray;*/
 
 	cursor: pointer;
 }
@@ -28,7 +28,42 @@
 	border: 1px dashed gray;
 }
 .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
-
+#editor {
+    position: relative;
+}
+#selector {
+    display: none;
+    z-index: 1000;
+    top: 0px;
+    border-radius: 5px;
+    left: 0px;
+    border: 2px solid #3498db;
+    padding: 0px;
+    position: absolute;
+}
+#editor .corner {
+    width: 10px;
+    height: 10px;
+    background: #3498db;
+    border-radius: 10px;
+    position: absolute;
+}
+#editor .corner.corner-top-left {
+    top: -5px;
+    left: -5px;
+}
+#editor .corner.corner-top-right {
+    top: -5px;
+    right: -5px;
+}
+#editor .corner.corner-bottom-left {
+    bottom: -5px;
+    left: -5px;
+}
+#editor .corner.corner-bottom-right {
+    bottom: -5px;
+    right: -5px;
+}
 
 #nwgrip, #negrip, #swgrip, #segrip, #ngrip, #egrip, #sgrip, #wgrip {
     width: 10px;

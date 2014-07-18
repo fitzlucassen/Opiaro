@@ -25,8 +25,13 @@
     // START CONTENT
     // Intégrer ci-dessous la vue
 ?>
-
-<div id="preview">
+<div id="editor">
+	<div id="preview">
+	</div>
+	<div id="selector">
+		<div class="corner corner-bottom-right">
+		</div>
+	</div>
 </div>
 
 <div id="right-toolbar">

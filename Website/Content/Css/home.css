@@ -213,6 +213,7 @@
 
 /* POPIN */
 #toolPopinGreyback{
+	z-index: 2000;
 	display: none;
 	width: 100%;
 	height: 100%;

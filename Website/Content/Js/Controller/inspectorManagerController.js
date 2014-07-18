@@ -1,6 +1,7 @@
 function InspectorManagerController(view){
 	this.view = view;
 	this.inspectorContainer = $('#right-toolbar');
+	ResizeableManager.init();
 }
 
 InspectorManagerController.prototype.showInInspector = function(element){
